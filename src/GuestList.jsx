@@ -18,7 +18,7 @@ export const GuestList = () => {
           return (
             <tr
               key={singleGuest.id}
-              onClick={() => getGuestDetails(singleGuest)}
+              onClick={() => getGuestDetails(singleGuest.id)}
             >
               <td>{singleGuest.name}</td>
               <td>{singleGuest.email}</td>

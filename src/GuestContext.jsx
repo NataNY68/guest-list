@@ -18,8 +18,14 @@ export const GuestProvider = ({ children }) => {
     getGuestList();
   }, []);
 
-  const getGuestDetails = (guest) => {
-    setSelectedGuest(guest);
+  const getGuestDetails = async (id) => {
+    const getGuestDetails = await fetch(
+      "https://fsa-crud-2aa9294fe819.herokuapp.com/api/2510-FTB-CT-WEB-PT/guests/" +
+        `${id}`
+    );
+    const jsonObj = await getGuestDetails.json();
+    const guestData = jsonObj.data;
+    setSelectedGuest(guestData);
   };
 
   const clickBackButton = () => {
